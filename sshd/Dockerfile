@@ -1,8 +1,12 @@
 From debian
 MAINTAINER Maythee Anegboonlap "null@llun.in.th"
 
+ADD https://ftp-master.debian.org/keys/archive-key-7.0.asc /tmp/key.asc
+RUN cat /tmp/key.asc | apt-key add -
+ADD sources.list /etc/apt/
+
 RUN apt-get update
-RUN apt-get install -y openssh-server git vim
+RUN apt-get install -y openssh-server git vim aptitude wget
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:password' | chpasswd
