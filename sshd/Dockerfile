@@ -1,4 +1,4 @@
-From llun/ssh
+From debian
 MAINTAINER Maythee Anegboonlap "null@llun.in.th"
 
 RUN apt-get update
