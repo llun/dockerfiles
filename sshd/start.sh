@@ -1,4 +1,4 @@
 #!/bin/sh
 
-/etc/init.d/ssh start
-bash -login
+# Start SSHD 
+/usr/sbin/sshd -D
