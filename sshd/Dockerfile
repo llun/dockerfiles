@@ -9,11 +9,13 @@ RUN apt-get update
 RUN apt-get install -y openssh-server git vim aptitude wget
 RUN mkdir /var/run/sshd
 
+ADD sshd_config /etc/ssh/
+
 RUN echo 'root:password' | chpasswd
 
 RUN mkdir -p /usr/local/etc/init.d/
 ADD start.sh /usr/local/etc/init.d/
 RUN chmod a+x /usr/local/etc/init.d/start.sh
 
-EXPOSE 22
+EXPOSE 2022
 CMD ["/usr/local/etc/init.d/start.sh"]
